@@ -1,0 +1,83 @@
+#:kivy 1.11
+
+<RootController@BoxLayout>:
+    canvas:
+        Color:
+            rgb: 245/255, 245/255, 245/255
+        Rectangle:
+            pos: 0, 0
+            size: self.width, self.height
+    BoxLayout:
+        orientation: 'horizontal'
+        NavigationController:
+            id: navigation_controller
+            size_hint: 0.3, 1
+        SingleViewSectionController:
+            id: single_view_section_controller
+
+
+<NavigationController>:
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint_x: None
+        width: 600
+        canvas:
+            Color:
+                rgb: 112/255, 112/255, 112/255
+            Rectangle:
+                pos: self.width, 0
+                size: 1, self.height
+            Color:
+                rgb: 224/255, 224/255, 224/255
+            Rectangle:
+                pos: 0, 0
+                size: self.width, self.height
+        Label:
+            size_hint_x: None
+            size_hint_y: None
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            text: 'Markets Application'
+            font_name: 'Roboto-Bold'
+            color: 0, 0, 0, 1
+            font_size: 50
+            canvas:
+                Color:
+                    rgb: 112/255, 112/255, 112/255
+                Rectangle:
+                    pos: 0, self.parent.height - self.height
+                    size: self.parent.width, 1
+        Label:
+            size_hint_x: None
+            size_hint_y: None
+            pos_hint: {'center_x': .1, 'center_y': .5}
+            color: 0, 0, 0, 1
+            font_name: 'Roboto-Bold'
+            text: 'Menu'
+        Button:
+            size_hint_x: None
+            size_hint_y: None
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            height: 40
+            width: self.parent.width
+            text: 'Single View'
+            on_press: root.single_view_section()
+        Button:
+            size_hint_x: None
+            size_hint_y: None
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            height: 40
+            width: self.parent.width
+            text: 'Multi View'
+            on_press: root.multi_view_section()
+        Label:
+            text: 'About'
+            color: 0, 0, 0, 1
+            font_name: 'RobotoMono-Regular'
+
+<SingleViewSectionController@BoxLayout>:
+    BoxLayout:
+        pos_hint_x: {'center_x': .5}
+        orientation: 'vertical'
+        Label:
+            text: "Yay"
+            color: 0, 0, 0, 1
